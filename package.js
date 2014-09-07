@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.use('oauth2@1.0.0', ['client', 'server']);
   api.use('http@1.0.4', ['client', 'server']);
   api.use('templating@1.0.5', 'client');
-  api.use('service-configuration@1.0.5', ['client', 'server']);
+  api.use('service-configuration@1.0.1', ['client', 'server']);
 
   api.export('LinkedIn');
 
