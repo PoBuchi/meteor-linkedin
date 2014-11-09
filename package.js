@@ -1,11 +1,10 @@
 Package.describe({
   summary: "A OAuth2 wrapper for the LinkedIN API",
-  version: "1.0.0",
+  version: "1.0.1",
   git: "https://github.com/PauliBuccini/meteor-linkedin.git"
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@0.9.1.1');
 
   api.use('oauth@1.0.1', ['client', 'server']);
   api.use('oauth2@1.0.0', ['client', 'server']);
