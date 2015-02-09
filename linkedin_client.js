@@ -17,7 +17,7 @@ LinkedIn.requestCredential = function (options, credentialRequestCompleteCallbac
   }
 
   var credentialToken = Random.secret();
-  var loginStyle = OAuth._loginStyle('instagram', config, options);
+  var loginStyle = OAuth._loginStyle('linkedin', config, options);
 
   var scope = [];
   if (options && options.requestPermissions) {
