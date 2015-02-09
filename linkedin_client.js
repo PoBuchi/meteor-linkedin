@@ -17,6 +17,7 @@ LinkedIn.requestCredential = function (options, credentialRequestCompleteCallbac
   }
 
   var credentialToken = Random.secret();
+  var loginStyle = OAuth._loginStyle('instagram', config, options);
 
   var scope = [];
   if (options && options.requestPermissions) {
@@ -27,7 +28,7 @@ LinkedIn.requestCredential = function (options, credentialRequestCompleteCallbac
         'https://www.linkedin.com/uas/oauth2/authorization' +
         '?response_type=code' + '&client_id=' + config.clientId +
         '&redirect_uri=' + encodeURIComponent(Meteor.absoluteUrl('_oauth/linkedin?close')) +
-        '&scope=' + scope + '&state=' + credentialToken;
+        '&scope=' + scope + '&state=' + OAuth._stateParam(loginStyle, credentialToken);
 
   OAuth.showPopup(
     loginUrl,

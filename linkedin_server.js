@@ -87,7 +87,7 @@ var getTokenResponse = function (query) {
 
 // fallback to old school
     responseContent = Meteor.http.post(
-      "https://api.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code=" + query.code + "&redirect_uri=" + Meteor.absoluteUrl("_oauth/linkedin?close") + "&client_id=" + config.clientId + "&client_secret=" + config.secret
+      "https://api.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code=" + query.code + "&redirect_uri=" + Meteor.absoluteUrl("_oauth/linkedin?close") + "&client_id=" + config.clientId + "&client_secret=" + OAuth.openSecret(config.secret)
 
      ).content;
   } catch (err) {
