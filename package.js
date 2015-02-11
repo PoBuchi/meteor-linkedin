@@ -1,6 +1,6 @@
 Package.describe({
   summary: "A OAuth2 wrapper for the LinkedIN API",
-  version: "1.0.1",
+  version: "1.0.2",
   git: "https://github.com/PauliBuccini/meteor-linkedin.git"
 });
 
