@@ -6,14 +6,15 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
+  api.versionsFrom('1.0.4')
 
   api.use('oauth2', ['client', 'server']);
-    api.use('oauth', ['client', 'server']);
-    api.use('http', ['server']);
-    api.use('templating', 'client');
-    api.use('underscore', 'server');
-    api.use('random', 'client');
-    api.use('service-configuration', ['client', 'server']);
+  api.use('oauth', ['client', 'server']);
+  api.use('http', ['server']);
+  api.use('templating', 'client');
+  api.use('underscore', 'server');
+  api.use('random', 'client');
+  api.use('service-configuration', ['client', 'server']);
 
   api.export('LinkedIn');
 
