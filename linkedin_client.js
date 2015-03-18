@@ -23,20 +23,14 @@ LinkedIn.requestCredential = function (options, credentialRequestCompleteCallbac
       scope = options.requestPermissions.join('+');
   }
 
-  var loginStyle = OAuth._loginStyle('linkedin', config, options);
-
   var loginUrl =
         'https://www.linkedin.com/uas/oauth2/authorization' +
         '?response_type=code' + '&client_id=' + config.clientId +
-        '&redirect_uri=' + OAuth._redirectUri('linkedin', config) +
-        '&scope=' + scope +
-        '&state=' + OAuth._stateParam(loginStyle, credentialToken);
+        '&redirect_uri=' + encodeURIComponent(Meteor.absoluteUrl('_oauth/linkedin?close')) +
+        '&scope=' + scope + '&state=' + credentialToken;
 
-  OAuth.launchLogin({
-    loginService: "linkedin",
-    loginStyle: loginStyle,
-    loginUrl: loginUrl,
-    credentialRequestCompleteCallback: credentialRequestCompleteCallback,
-    credentialToken: credentialToken
-  });
+  OAuth.showPopup(
+    loginUrl,
+    _.bind(credentialRequestCompleteCallback, null, credentialToken)
+  );
 };
