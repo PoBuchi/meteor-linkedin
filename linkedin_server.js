@@ -36,7 +36,10 @@ OAuth.registerService('linkedin', 2, null, function(query) {
   return {
     serviceData: serviceData,
     options: {
-      profile: fields
+      profile: {
+        firstName: identity.firstName,
+        lastName: identity.lastName
+      }
     }
   };
 });
