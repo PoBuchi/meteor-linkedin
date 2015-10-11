@@ -1,4 +1,7 @@
+LinkedIn = {};
+
 // Request LinkedIn credentials for the user
+//
 // @param options {optional}
 // @param credentialRequestCompleteCallback {Function} Callback function to call on
 //   completion. Takes one argument, credentialToken on success, or Error on
@@ -12,7 +15,8 @@ LinkedIn.requestCredential = function (options, credentialRequestCompleteCallbac
 
   var config = ServiceConfiguration.configurations.findOne({service: 'linkedin'});
   if (!config) {
-    credentialRequestCompleteCallback && credentialRequestCompleteCallback(new ServiceConfiguration.ConfigError("Service not configured"));
+    credentialRequestCompleteCallback && credentialRequestCompleteCallback(
+      new ServiceConfiguration.ConfigError("Service not configured"));
     return;
   }
 

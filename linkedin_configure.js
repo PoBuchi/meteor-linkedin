@@ -1,6 +1,8 @@
-Template.configureLoginServiceDialogForLinkedin.siteUrl = function () {
-  return Meteor.absoluteUrl();
-};
+Template.configureLoginServiceDialogForLinkedin.helpers({
+	siteUrl: function () {
+  	return Meteor.absoluteUrl();
+  }
+});
 
 Template.configureLoginServiceDialogForLinkedin.fields = function () {
   return [
