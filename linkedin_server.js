@@ -1,7 +1,5 @@
 LinkedIn = {};
 
-var OAuth = Package.oauth.OAuth;
-
 var urlUtil = Npm.require('url');
 
 OAuth.registerService('linkedin', 2, null, function(query) {
@@ -69,8 +67,9 @@ var isJSON = function (str) {
 // - expiresIn: lifetime of token in seconds
 var getTokenResponse = function (query) {
   var config = ServiceConfiguration.configurations.findOne({service: 'linkedin'});
-  if (!config)
+  if (!config){
     throw new ServiceConfiguration.ConfigError("Service not configured");
+  }
 
   var responseContent;
   try {
