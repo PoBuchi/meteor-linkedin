@@ -1,17 +1,17 @@
 var OAuth = Package.oauth.OAuth;
 
-var urlUtil = Npm.require('url');
-
 OAuth.registerService('linkedin', 2, null, function(query) {
 
   var response = getTokenResponse(query);
   var accessToken = response.accessToken;
   var identity = getIdentity(accessToken);
-  var profileUrl = identity.siteStandardProfileRequest.url;
-  var urlParts = urlUtil.parse(profileUrl, true);
 
+  var id = identity.id;
+  if (!id) {
+    throw new Error("LinkedIn did not provide an id");    
+  }
   var serviceData = {
-    id: urlParts.query.id || Random.id(),
+    id: id,
     accessToken: accessToken,
     expiresAt: (+new Date) + (1000 * response.expiresIn)
   };
