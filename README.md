@@ -1,3 +1,6 @@
+DEPRICATED,
+see https://github.com/PoBuchi/pauli-linkedin-oauth
+
 meteor-linkedin
 ===============
 
